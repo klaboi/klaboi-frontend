@@ -2,15 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 .footer {
-padding: 1rem 1.5rem 5rem 1.5rem;
-position: relative;
-max-width: 1440px;
-width: 100%;
-left: 0px;
-top: 2642px;
-
+padding: 2rem 1.5rem 5rem 1.5rem;
+display: table-row;
+height: 0;
 color: #fff;
-
 background: #0F8797;
 }
 
@@ -21,7 +16,8 @@ background: #0F8797;
   /* Create three equal columns that floats next to each other */
   .column {
     float: left;
-    padding: 10px 10px 10px 70px;
+    padding: 40px 10px 10px 70px;
+  
     
   }
 
@@ -43,6 +39,15 @@ background: #0F8797;
     clear: both;
   }
   
+  .navbar-brand:hover, .navbar-brand:focus {
+    text-decoration: none !important;
+    color: white !important;
+}
+
+ a:hover{
+   text-decoration: none !important;
+   color: white !important;
+ }
   /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
   @media screen and (max-width: 600px) {
     .column {

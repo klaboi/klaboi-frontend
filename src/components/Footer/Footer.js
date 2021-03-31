@@ -6,7 +6,7 @@ import igURL from '../Assets/ig_logo.svg'
 
 const Footer = () => (
     <div className="footer">
-      <div className="container">
+      
         <div class="row">
             <div class="column left">
                 <h2>iResearch</h2>
@@ -30,7 +30,7 @@ const Footer = () => (
                 <li><a href ='#'><img src={igURL}/></a></li>
             </div>
         </div>
-      </div>
+      
     </div>
   );
   

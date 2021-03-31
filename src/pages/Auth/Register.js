@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Register.scss'
 import {Button} from 'react-bootstrap';
-
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 class Register extends Component {
 
@@ -13,12 +14,16 @@ class Register extends Component {
 
         this.state = {
             email: "",
-            password: ""
+            password: "",
+            rollno: "",
+            fullname:"",
+            phoneno:""
+
         }
     }
 
     handleSubmit = async event => {
-        console.log(this.state.username)
+        //console.log(this.state.username)
         event.preventDefault()
     }
 
@@ -31,57 +36,70 @@ class Register extends Component {
         
     }
 
+
+
     
     
 
     render() {
         return (
-            <div className="register row justify-content-center align-items-center">
+            <div>
                 <Header />
-                <div className = "row justify-content-center align-items-center">
-                <h1>Sign Up<span>as a Professor</span></h1>
-                <a href = './Login.js'>or login into your account</a>
-                
-                <div className = "w-50 p-3">
-                <form onSubmit={this.handleSubmit}>
+            <div className="register row justify-content-center align-items-center">
+
+             <div className = "w-50 p-3">
+                <h1>Sign up<span>as a Student</span></h1>
+                <Link to="/LogIn">or login to your account</Link>
+                <br></br>
+                <br></br>
+                <form >
                 <div className="input-group mb-3">
                 <input type="text" id="email"   
                 value={this.state.email}
                 onChange={this.onInputChange} 
-                className="form-control" placeholder=" Institute email" aria-label="Institute email" aria-describedby="basic-addon2"/>
+                className="form-control form-control-lg" placeholder=" institute email" aria-label="institute-email" aria-describedby="basic-addon2"/>
                 </div>
 
                 <div className="input-group mb-3">
-                
                 <input type="text" id="password"
                 value={this.state.password}
                 onChange={this.onInputChange} 
-                className="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon2"/>
+                className="form-control form-control-lg" placeholder="password" aria-label="password" aria-describedby="basic-addon2"/>
                 </div>
 
                 <div className="input-group mb-3">
-                <input type="text" className="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2"/>
+                <input type="text" id="rollno"
+                value={this.state.rollno}
+                onChange={this.onInputChange}
+                className="form-control form-control-lg" placeholder="roll number" aria-label="Recipient's username" aria-describedby="basic-addon2"/>
                 </div>
 
                 <div className="input-group mb-3">
-                <input type="text" className="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2"/>    
+                <input type="text" id="fullname"
+                 value={this.state.fullname}
+                 onChange={this.onInputChange}
+                 className="form-control form-control-lg" placeholder="full name" aria-label="Recipient's username" aria-describedby="basic-addon2"/>    
                 </div>
 
                 <div className="input-group mb-3">
-                <input type="text" className="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2"/>
+                <input type="text" id="phoneno"
+                 value={this.state.phoneno}
+                 onChange={this.onInputChange}
+                 className="form-control form-control-lg" placeholder="phone number" aria-label="Recipient's username" aria-describedby="basic-addon2"/>
                 </div>
 
                 
-                <Button type = "submit" onSubmit={this.handleSubmit} variant="primary" size="lg" block>
+                <Button id = "register-btn" type = "submit" onSubmit={this.handleSubmit} variant="primary" size="lg" block>
                     continue
                 </Button>
                
                 </form>
                 </div>
                 
-                </div>
+                
                 
 
+            </div>
             </div>
         )
     }
