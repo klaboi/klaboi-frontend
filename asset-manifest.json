@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/shubhramishrakota2310/iResearch/static/css/main.ff643aaa.chunk.css",
+    "main.js": "/shubhramishrakota2310/iResearch/static/js/main.b2d92581.chunk.js",
+    "main.js.map": "/shubhramishrakota2310/iResearch/static/js/main.b2d92581.chunk.js.map",
+    "runtime-main.js": "/shubhramishrakota2310/iResearch/static/js/runtime-main.843664c2.js",
+    "runtime-main.js.map": "/shubhramishrakota2310/iResearch/static/js/runtime-main.843664c2.js.map",
+    "static/css/2.fabbef47.chunk.css": "/shubhramishrakota2310/iResearch/static/css/2.fabbef47.chunk.css",
+    "static/js/2.b2b8b255.chunk.js": "/shubhramishrakota2310/iResearch/static/js/2.b2b8b255.chunk.js",
+    "static/js/2.b2b8b255.chunk.js.map": "/shubhramishrakota2310/iResearch/static/js/2.b2b8b255.chunk.js.map",
+    "static/js/3.11b14134.chunk.js": "/shubhramishrakota2310/iResearch/static/js/3.11b14134.chunk.js",
+    "static/js/3.11b14134.chunk.js.map": "/shubhramishrakota2310/iResearch/static/js/3.11b14134.chunk.js.map",
+    "index.html": "/shubhramishrakota2310/iResearch/index.html",
+    "static/css/2.fabbef47.chunk.css.map": "/shubhramishrakota2310/iResearch/static/css/2.fabbef47.chunk.css.map",
+    "static/css/main.ff643aaa.chunk.css.map": "/shubhramishrakota2310/iResearch/static/css/main.ff643aaa.chunk.css.map",
+    "static/js/2.b2b8b255.chunk.js.LICENSE.txt": "/shubhramishrakota2310/iResearch/static/js/2.b2b8b255.chunk.js.LICENSE.txt",
+    "static/media/fb_logo.177a5b04.svg": "/shubhramishrakota2310/iResearch/static/media/fb_logo.177a5b04.svg",
+    "static/media/homepicture.27e42c10.svg": "/shubhramishrakota2310/iResearch/static/media/homepicture.27e42c10.svg",
+    "static/media/ig_logo.d5876fa9.svg": "/shubhramishrakota2310/iResearch/static/media/ig_logo.d5876fa9.svg",
+    "static/media/logo-white.770e34cd.svg": "/shubhramishrakota2310/iResearch/static/media/logo-white.770e34cd.svg",
+    "static/media/logo.4bac2918.svg": "/shubhramishrakota2310/iResearch/static/media/logo.4bac2918.svg",
+    "static/media/logom.c3946945.svg": "/shubhramishrakota2310/iResearch/static/media/logom.c3946945.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.843664c2.js",
+    "static/css/2.fabbef47.chunk.css",
+    "static/js/2.b2b8b255.chunk.js",
+    "static/css/main.ff643aaa.chunk.css",
+    "static/js/main.b2d92581.chunk.js"
+  ]
+}
