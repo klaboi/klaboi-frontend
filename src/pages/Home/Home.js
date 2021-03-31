@@ -6,7 +6,8 @@ import homepageURL from '../../components/Assets/homepicture.svg';
 import { render } from '@testing-library/react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './custom.scss'
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { HashRouter, Route, Link, Switch } from "react-router-dom";
+
 
 
 

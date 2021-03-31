@@ -7,14 +7,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Project from './pages/Project/Project';
 import ProjectComponent from './components/Project/projectComponent';
 import Project2Component from './components/Project/project2Component';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { HashRouter, Route, Link, Switch } from "react-router-dom";
 
 function App() {
 
   
     return (
       <div >
-      <Router>
+      <HashRouter basename="/">
         <Switch>
           <Route path="/" component = {Home} exact/>
           <Route path="/Login" component = {LogIn}/>
@@ -22,7 +22,7 @@ function App() {
           <Route path="/Projects" component = {ProjectComponent} />
           <Route path="/Application" component = {Project2Component} />     
         </Switch>
-      </Router>
+      </HashRouter>
       
       
     </div>

@@ -3,7 +3,7 @@ import FooterComponent from './footerComponent';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import Footer from '../Footer/Footer'
 import Header from '../Header/Header'
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { HashRouter, Route, Link, Switch } from "react-router-dom";
 
 
 

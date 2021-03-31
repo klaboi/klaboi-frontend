@@ -6,7 +6,7 @@ import Footer from '../Footer/Footer'
 import CardComponent from './cardComponent';
 import CarouselComponent from './carouselComponent';
 import FooterComponent from './footerComponent';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { HashRouter, Route, Link, Switch } from "react-router-dom";
 function example() {
   return (
     <div className="App">
