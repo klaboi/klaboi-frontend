@@ -14,13 +14,15 @@ function App() {
   
     return (
       <div >
-      <Switch>
-      <Route path="/" component = {Home} exact/>
-      <Route path="/Login" component = {LogIn}/>
-      <Route path="/Register" component = {Register}/>
-      <Route path="/Projects" component = {ProjectComponent} />
-      <Route path="/Application" component = {Project2Component} />     
-      </Switch>
+      <Router>
+        <Switch>
+          <Route path="/" component = {Home} exact/>
+          <Route path="/Login" component = {LogIn}/>
+          <Route path="/Register" component = {Register}/>
+          <Route path="/Projects" component = {ProjectComponent} />
+          <Route path="/Application" component = {Project2Component} />     
+        </Switch>
+      </Router>
       
       
     </div>
