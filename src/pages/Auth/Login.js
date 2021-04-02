@@ -15,16 +15,38 @@ class LogIn extends Component {
         }
     }
 
-    handleSubmit = async event => {
-        //console.log(this.state.username)
-        event.preventDefault()
+    handleSubmit = event => {
+        console.log("email:", (this.state.email), "password:", (this.state.password))
+        event.preventDefault();
+        //event.target.reset();
+        const data = {
+            email: this.state.email,
+            password: this.state.password
+        }
+        fetch('https://payztzwv2m.execute-api.ap-south-1.amazonaws.com/users', {
+            method: 'GET',
+            headers: {
+                'Accept' :'application/json',
+                'Content-Type': 'application/json'
+            },
+            
+            //body: JSON.stringify(data)
+    
+        }).then((Response) => Response.json())
+            .then((result) => {
+                console.log(result);
+                if(result.statusCode == '404')
+                    alert('Invalid');
+                else
+                    this.props.history.push("/Register");
+            })
     }
 
     onInputChange = event => {
         this.setState({
             [event.target.id]:event.target.value
         },()=>{
-            console.log(this.state);
+           // console.log(this.state);
         })
         
     }
@@ -45,7 +67,7 @@ class LogIn extends Component {
                 <Link to="/Register">or create a new account</Link>
                 <br></br>
                 <br></br>
-                <form >
+                <form onSubmit={this.handleSubmit}>
                 <div className="input-group mb-3">
                 <input type="text" id="email"   
                 value={this.state.email}

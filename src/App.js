@@ -14,7 +14,6 @@ function App() {
   
     return (
       <div >
-      <HashRouter basename="/">
         <Switch>
           <Route path="/" component = {Home} exact/>
           <Route path="/Login" component = {LogIn}/>
@@ -22,7 +21,7 @@ function App() {
           <Route path="/Projects" component = {ProjectComponent} />
           <Route path="/Application" component = {Project2Component} />     
         </Switch>
-      </HashRouter>
+      
       
       
     </div>
