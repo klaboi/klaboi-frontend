@@ -11,7 +11,7 @@ import { HashRouter, Route, Link, Switch } from "react-router-dom";
 
 function App() {
 
-  
+
     return (
       <div >
         <HashRouter basename ='/'>
@@ -20,12 +20,9 @@ function App() {
           <Route path="/Login" component = {LogIn}/>
           <Route path="/Register" component = {Register}/>
           <Route path="/Projects" component = {ProjectComponent} />
-          <Route path="/Application" component = {Project2Component} />     
+          <Route path="/Application" component = {Project2Component} />
         </Switch>
         </HashRouter>
-      
-      
-      
     </div>
     )
   }
