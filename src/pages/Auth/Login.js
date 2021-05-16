@@ -1,62 +1,92 @@
-import React, {Component} from 'react';
+import React, { useEffect, useContext, useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link, useHistory } from "react-router-dom";
+import styled from "styled-components";
 import './Register.scss'
 import {Button} from 'react-bootstrap';
-import { HashRouter, Route, Link, Switch } from "react-router-dom";
+import { encode } from "base-64";
+import { APIlink } from "../../Helper";
+import { HashRouter, Route, Switch } from "react-router-dom";
 import Header from '../../components/Header/Header'
-class LogIn extends Component {
 
-    constructor(props) {
-        super(props)
 
-        this.state = {
-            email: "",
-            password: ""
-        }
-    }
+const Submit = styled(Button)`
+  width: 200px;
+  cursor: ${(props) =>
+    props.loginState == "empty"
+      ? "default"
+      : props.loginState == "filled"
+      ? "pointer"
+      : ""};
+  background-color: ${(props) =>
+    props.loginState == "empty"
+      ? "#cacaca"
+      : props.loginState == "filled"
+      ? "#24ca7a"
+      : ""};
+  &:hover {
+    background-color: ${(props) =>
+      props.loginState == "empty"
+        ? "#cacaca"
+        : props.loginState == "filled"
+        ? "#05a16d"
+        : ""};
+  }
+`;
 
-    handleSubmit = event => {
-        console.log("email:", (this.state.email), "password:", (this.state.password))
+function LogIn() {
+
+    const [password, setPassword] = React.useState("");
+    const [email, setEmail] = React.useState("");
+    const [err, setErr] = React.useState(null);
+
+    const history = useHistory();
+
+    const handleSubmit = async (event, password, email) => {
         event.preventDefault();
-        //event.target.reset();
-        const data = {
-            email: this.state.email,
-            password: this.state.password
+
+        var myHeaders = new Headers();
+        myHeaders.set('Authorization', 'Basic ' + encode(email + ":" + password));
+
+        var requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'follow'
+        };
+
+        let response;
+
+        try {
+            response = await fetch (`${APIlink}/users`, requestOptions)
+        } catch (err) {
+            setErr("Incorrect Password. Please Retry.");
+            return;
         }
-        fetch('https://payztzwv2m.execute-api.ap-south-1.amazonaws.com/users', {
-            method: 'GET',
-            headers: {
-                'Accept' :'application/json',
-                'Content-Type': 'application/json'
-            },
-            
-            //body: JSON.stringify(data)
-    
-        }).then((Response) => Response.json())
-            .then((result) => {
-                console.log(result);
-                if(result.statusCode == '404')
-                    alert('Invalid');
-                else
-                    this.props.history.push("/Register");
-            })
-    }
 
-    onInputChange = event => {
-        this.setState({
-            [event.target.id]:event.target.value
-        },()=>{
-           // console.log(this.state);
-        })
+        const result = await response.text();
+        //console.log(result);
+        const json = JSON.parse(result);
+        //console.log(json);
+        //console.log(response);
         
-    }
+
+        if (response.status===200) {
+            setErr(null);
+            
+            //context.updateToken(JSON.stringify(json.data));
+            history.push("/Projects");
+            } else {
+            setErr(json.error);
+            console.log(json.error);
+            }
+        };
 
 
 
     
     
 
-    render() {
+    
         return (
             <div>
                 <Header />
@@ -67,27 +97,60 @@ class LogIn extends Component {
                 <Link to="/Register">or create a new account</Link>
                 <br></br>
                 <br></br>
-                <form onSubmit={this.handleSubmit}>
+                <form>
                 <div className="input-group mb-3">
                 <input type="text" id="email"   
-                value={this.state.email}
-                onChange={this.onInputChange} 
+                value={email}
+                onChange= {(event) => {
+                    setErr("");
+                    setEmail(event.target.value); }}
                 className="form-control form-control-lg" placeholder=" institute email" aria-label="institute-email" aria-describedby="basic-addon2"/>
                 </div>
 
+                <small
+                style={{ color: "red", height: "10px", display: "inline-block" }}
+                >
+                {err == "user not found" ? "Account doesn't exist" : ""}
+                </small>
+
+
                 <div className="input-group mb-3">
                 <input type="text" id="password"
-                value={this.state.password}
-                onChange={this.onInputChange} 
+                value={password}
+                onChange={(event) => {
+                    setPassword(event.target.value);
+                    setErr("");
+                }}
                 className="form-control form-control-lg" placeholder="password" aria-label="password" aria-describedby="basic-addon2"/>
                 </div>
+
+                <small
+                style={{ color: "red", height: "10px", display: "inline-block" }}
+                >
+                {err == "incorrect password"
+                    ? "Incorrect Password"
+                    : err == "Username and Password can't be empty"
+                    ? err
+                    : ""}
+                </small>
 
                
 
                 
-                <Button id = "register-btn" type = "submit" onSubmit={this.handleSubmit} variant="primary" size="lg" block>
-                    continue
-                </Button>
+                <Submit
+                //loginState={loginState}
+                onClick={(event) => {
+                  event.preventDefault();
+                  if (email != "" && password != "") {
+                    handleSubmit(event, password, email);
+                  } else {
+                    setErr("Username and Password can't be empty");
+                  }
+                }}
+              >
+                {" "}
+                Log In
+              </Submit>
                
                 </form>
                 </div>
@@ -99,6 +162,6 @@ class LogIn extends Component {
             </div>
         )
     }
-}
+
 
 export default LogIn;
