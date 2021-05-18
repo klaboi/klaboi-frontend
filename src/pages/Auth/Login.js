@@ -7,7 +7,8 @@ import {Button} from 'react-bootstrap';
 import { encode } from "base-64";
 import { APIlink } from "../../Helper";
 import { HashRouter, Route, Switch } from "react-router-dom";
-import Header from '../../components/Header/Header'
+import Header from '../../components/Header/Header';
+import AuthRequired from './AuthRequired';
 
 
 const Submit = styled(Button)`
@@ -72,7 +73,7 @@ function LogIn() {
 
         if (response.status===200) {
             setErr(null);
-            
+            localStorage.setItem('isAuthenticated', true);
             //context.updateToken(JSON.stringify(json.data));
             history.push("/Projects");
             } else {
