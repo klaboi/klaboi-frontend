@@ -8,9 +8,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 ReactDOM.render(
-  <HashRouter basename={process.env.PUBLIC_URL}>
+  
     <App/>
-  </HashRouter>,
+ ,
   document.getElementById('root')
 );
 

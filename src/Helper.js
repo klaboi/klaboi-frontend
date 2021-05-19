@@ -1,0 +1,1 @@
+export const APIlink = "https://payztzwv2m.execute-api.ap-south-1.amazonaws.com";
