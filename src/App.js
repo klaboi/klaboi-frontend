@@ -57,9 +57,10 @@ const pathsForLayout = routes => routes.map(route => route.path)
 
 function App(props) {
 
-  
+
     return (
       <div >
+        
             <HashRouter basename ='/'>
                 <Switch>
                     <Route exact path={pathsForLayout(publicRoutes)}>
