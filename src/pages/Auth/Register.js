@@ -1,12 +1,10 @@
-import React, { useEffect, useContext, useState} from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, useHistory } from "react-router-dom";
 import styled from "styled-components";
 import './Register.scss'
 import {Button} from 'react-bootstrap';
-import { encode } from "base-64";
 import { APIlink } from "../../Helper";
-import { HashRouter, Route, Switch } from "react-router-dom";
 import Header from '../../components/Header/Header';
 import AuthRequired from './AuthRequired';
 
@@ -43,12 +41,18 @@ function Register() {
     const [fullname, setFullname] = React.useState("");
     const [phoneno, setPhoneno] = React.useState("");
     const [err, setErr] = React.useState(null);
+    const [emailErr, setEmailErr] = React.useState({});
+    const [phonenoErr, setPhonenoErr] = React.useState({});
+
 
     const history = useHistory();
 
     const handleSubmit = async (event, password, email) => {
         event.preventDefault();
 
+        const isValid = formValidation();
+
+        if(isValid) {
         var myHeaders = new Headers();
         myHeaders.append("Authorization", "Basic abc:test");
         myHeaders.append("Content-Type", "application/json");
@@ -92,7 +96,32 @@ function Register() {
             setErr(json.error);
             console.log(json.error);
             }
+          }
+
         };
+
+    const formValidation = () => {
+      const emailErr = {};
+      const phonenoErr = {};
+      let isValid = true;
+      var regex = /\S+@iitkgp\.ac\.in$/;
+      var result = regex.test(email);
+      if(result == true){
+          isValid = true;
+      }
+      else{
+        emailErr.wrongFormat = "Incorrect format";
+        isValid = false;
+      }
+      if(phoneno.trim().length < 10) {
+        phonenoErr.phonenoShort = "Password must be atleast 6 characters long";
+        isValid = false;
+      }
+
+      setEmailErr(emailErr);
+      setPhonenoErr(phonenoErr);
+      return isValid;
+    } 
 
         return (
             <div>
@@ -101,7 +130,7 @@ function Register() {
 
              <div className = "w-50 p-3">
                 <h1>Sign up</h1>
-                <Link to="/Login">or Log in</Link>
+                <Link to="/Login">or login to your account</Link>
                 <br></br>
                 <br></br>
                 <form>
@@ -113,6 +142,10 @@ function Register() {
                     setEmail(event.target.value); }}
                 className="form-control form-control-lg" placeholder=" institute email" aria-label="institute-email" aria-describedby="basic-addon2"/>
                 </div>
+                {Object.keys(emailErr).map((key)=>{
+                  return <div style={{color:"red"}}>{emailErr[key]}</div>
+                })}
+                
 
 
                 <div className="input-group mb-3">
@@ -146,7 +179,7 @@ function Register() {
                 </div>
 
                 <div className="input-group mb-3">
-                <input type="text" id="phoneno"
+                <input type="number" id="phoneno"
                 value={phoneno}
                 onChange={(event) => {
                     setPhoneno(event.target.value);
@@ -154,6 +187,9 @@ function Register() {
                 }}
                 className="form-control form-control-lg" placeholder="phone number" aria-label="phoneno" aria-describedby="basic-addon2"/>
                 </div>
+                {Object.keys(phonenoErr).map((key)=>{
+                  return <div style={{color:"red"}}>{phonenoErr[key]}</div>
+                })}
 
                
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState} from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, useHistory } from "react-router-dom";
 import styled from "styled-components";
@@ -6,7 +6,6 @@ import './Register.scss'
 import {Button} from 'react-bootstrap';
 import { encode } from "base-64";
 import { APIlink } from "../../Helper";
-import { HashRouter, Route, Switch } from "react-router-dom";
 import Header from '../../components/Header/Header';
 import AuthRequired from './AuthRequired';
 
@@ -82,12 +81,6 @@ function LogIn() {
             }
         };
 
-
-
-    
-    
-
-    
         return (
             <div>
                 <Header />
@@ -150,7 +143,7 @@ function LogIn() {
                 }}
               >
                 {" "}
-                Log In
+                continue
               </Submit>
                
                 </form>
