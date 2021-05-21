@@ -7,8 +7,6 @@ import {Button} from 'react-bootstrap';
 import { encode } from "base-64";
 import { APIlink } from "../../Helper";
 import Header from '../../components/Header/Header';
-import AuthRequired from './AuthRequired';
-
 
 const Submit = styled(Button)`
   width: 200px;
@@ -47,7 +45,7 @@ function LogIn() {
 
         var myHeaders = new Headers();
         myHeaders.set('Authorization', 'Basic ' + encode(email + ":" + password));
-
+        //localStorage.setItem('myHeaders', JSON.stringify(myHeaders));
         var requestOptions = {
         method: 'GET',
         headers: myHeaders,
@@ -68,16 +66,18 @@ function LogIn() {
         const json = JSON.parse(result);
         //console.log(json);
         //console.log(response);
+        //console.log(JSON.stringify(myHeaders));
         
 
         if (response.status===200) {
             setErr(null);
             localStorage.setItem('isAuthenticated', true);
-            //context.updateToken(JSON.stringify(json.data));
-            history.push("/Projects");
+            const authdata = window.btoa(email+ ':' + password);
+            localStorage.setItem('currentUser', JSON.stringify(authdata));
+            history.push("/Profile");
             } else {
-            setErr(json.error);
-            console.log(json.error);
+            setErr("Invalid credentials");
+            console.log(err);
             }
         };
 
@@ -100,13 +100,6 @@ function LogIn() {
                     setEmail(event.target.value); }}
                 className="form-control form-control-lg" placeholder=" institute email" aria-label="institute-email" aria-describedby="basic-addon2"/>
                 </div>
-
-                <small
-                style={{ color: "red", height: "10px", display: "inline-block" }}
-                >
-                {err == "user not found" ? "Account doesn't exist" : ""}
-                </small>
-
 
                 <div className="input-group mb-3">
                 <input type="text" id="password"

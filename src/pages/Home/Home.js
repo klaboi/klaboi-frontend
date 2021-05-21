@@ -27,9 +27,9 @@ class Home extends Component{
 
   render(){
     return (
-    <div className="home">
+    <div className="home" style ={{minHeight:"100vh", display:"flex", flexDirection:"column"}}>
     <Header/>
-      <div className="container">
+      <div className="container" style={{padding: "2rem"}}>
         <div className="row">
             <div className="column first">
                 <h1>Interested in Research?</h1>

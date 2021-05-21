@@ -11,6 +11,7 @@ import Project3Component from './components/Project/demo1Component';
 import Project4Component from './components/Project/demo2Component';
 import { HashRouter, Route, Link, Switch } from "react-router-dom";
 import AuthRequired from './pages/Auth/AuthRequired';
+import Profile from './pages/Auth/Profile';
 
 const publicRoutes = [
   {
@@ -50,6 +51,11 @@ const authRequiredRoutes = [
     path: "/Demo2",
     exact: true,
     component: <Project4Component/>
+  },
+  {
+    path: "/Profile",
+    exact: true,
+    component: <Profile/>
   },
 ]
 

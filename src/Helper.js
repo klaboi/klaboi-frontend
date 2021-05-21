@@ -1,1 +1,1 @@
-export const APIlink = "https://payztzwv2m.execute-api.ap-south-1.amazonaws.com";
+export const APIlink = "https://tupb3wtrkd.execute-api.ap-south-1.amazonaws.com";

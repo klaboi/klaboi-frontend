@@ -12,23 +12,23 @@ import AuthRequired from './AuthRequired';
 const Submit = styled(Button)`
   width: 200px;
   cursor: ${(props) =>
-    props.loginState == "empty"
+    props.loginstate == "empty"
       ? "default"
-      : props.loginState == "filled"
+      : props.loginstate == "filled"
       ? "pointer"
       : ""};
   background-color: ${(props) =>
-    props.loginState == "empty"
+    props.loginstate == "empty"
       ? "#cacaca"
-      : props.loginState == "filled"
-      ? "#24ca7a"
+      : props.loginstate == "filled"
+      ? "#0F8797"
       : ""};
   &:hover {
     background-color: ${(props) =>
-      props.loginState == "empty"
+      props.loginstate == "empty"
         ? "#cacaca"
-        : props.loginState == "filled"
-        ? "#05a16d"
+        : props.loginstate == "filled"
+        ? "#0F8797"
         : ""};
   }
 `;
@@ -38,30 +38,31 @@ function Register() {
     const [password, setPassword] = React.useState("");
     const [email, setEmail] = React.useState("");
     const [rollno, setRollno] = React.useState("");
-    const [fullname, setFullname] = React.useState("");
+    const [name, setName] = React.useState("");
     const [phoneno, setPhoneno] = React.useState("");
     const [err, setErr] = React.useState(null);
     const [emailErr, setEmailErr] = React.useState({});
     const [phonenoErr, setPhonenoErr] = React.useState({});
+    const [loginstate, setloginstate] = React.useState("empty");
 
 
     const history = useHistory();
 
-    const handleSubmit = async (event, password, email) => {
+    const handleSubmit = async (event, password, email, rollno, name, phoneno) => {
         event.preventDefault();
 
         const isValid = formValidation();
 
         if(isValid) {
         var myHeaders = new Headers();
-        myHeaders.append("Authorization", "Basic abc:test");
+        //myHeaders.append("Authorization", "Basic abc:test");
         myHeaders.append("Content-Type", "application/json");
 
         var raw = JSON.stringify({
         email: email,
         password: password,
         rollno: rollno,
-        fullname: fullname,
+        name: name,
         phoneno: phoneno,
         });
 
@@ -113,8 +114,8 @@ function Register() {
         emailErr.wrongFormat = "Incorrect format";
         isValid = false;
       }
-      if(phoneno.trim().length < 10) {
-        phonenoErr.phonenoShort = "Password must be atleast 6 characters long";
+      if(phoneno.trim().length == 10) {
+        phonenoErr.phonenoShort = "Phone number must have 10 digits.";
         isValid = false;
       }
 
@@ -139,7 +140,10 @@ function Register() {
                 value={email}
                 onChange= {(event) => {
                     setErr("");
-                    setEmail(event.target.value); }}
+                    setEmail(event.target.value); 
+                    if (event.target.value != "" && password != "" && rollno != "" && name != "" && phoneno != "") {
+                      setloginstate("filled");
+                    }}}
                 className="form-control form-control-lg" placeholder=" institute email" aria-label="institute-email" aria-describedby="basic-addon2"/>
                 </div>
                 {Object.keys(emailErr).map((key)=>{
@@ -154,6 +158,9 @@ function Register() {
                 onChange={(event) => {
                     setPassword(event.target.value);
                     setErr("");
+                    if (event.target.value != "" && email != "" && rollno != "" && name != "" && phoneno != "") {
+                      setloginstate("filled");
+                    }
                 }}
                 className="form-control form-control-lg" placeholder="password" aria-label="password" aria-describedby="basic-addon2"/>
                 </div>
@@ -164,18 +171,24 @@ function Register() {
                 onChange={(event) => {
                     setRollno(event.target.value);
                     setErr("");
+                    if (event.target.value != "" && password != "" && email != "" && name != "" && phoneno != "") {
+                      setloginstate("filled");
+                    }
                 }}
                 className="form-control form-control-lg" placeholder="roll number" aria-label="rollno" aria-describedby="basic-addon2"/>
                 </div>
 
                 <div className="input-group mb-3">
-                <input type="text" id="fullname"
-                value={fullname}
+                <input type="text" id="name"
+                value={name}
                 onChange={(event) => {
-                    setFullname(event.target.value);
+                    setName(event.target.value);
                     setErr("");
+                    if (event.target.value != "" && password != "" && rollno != "" && email != "" && phoneno != "") {
+                      setloginstate("filled");
+                    }
                 }}
-                className="form-control form-control-lg" placeholder="full name" aria-label="fullname" aria-describedby="basic-addon2"/>
+                className="form-control form-control-lg" placeholder="full name" aria-label="name" aria-describedby="basic-addon2"/>
                 </div>
 
                 <div className="input-group mb-3">
@@ -184,6 +197,9 @@ function Register() {
                 onChange={(event) => {
                     setPhoneno(event.target.value);
                     setErr("");
+                    if (event.target.value != "" && password != "" && rollno != "" && name != "" && email != "") {
+                      setloginstate("filled");
+                    }
                 }}
                 className="form-control form-control-lg" placeholder="phone number" aria-label="phoneno" aria-describedby="basic-addon2"/>
                 </div>
@@ -195,11 +211,11 @@ function Register() {
 
                 
                 <Submit
-                //loginState={loginState}
+                loginstate={loginstate}
                 onClick={(event) => {
                   event.preventDefault();
-                  if (email != "" && password != "" && rollno != "" && fullname != "" && phoneno != "") {
-                    handleSubmit(event, password, email, rollno, fullname, phoneno);
+                  if (email != "" && password != "" && rollno != "" && name != "" && phoneno != "") {
+                    handleSubmit(event, password, email, rollno, name, phoneno);
                   } else {
                     setErr("Fields can't be left empty");
                   }

@@ -2,7 +2,6 @@
   "name": "iresearch",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/shubhramishrakota2310/iResearch",
   "proxy": "https://payztzwv2m.execute-api.ap-south-1.amazonaws.com",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
