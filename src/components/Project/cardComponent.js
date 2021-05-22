@@ -12,6 +12,7 @@ import logo from '../Assets/kgp.svg';
 import {Container, Row, Col} from 'reactstrap';
 import axios from 'axios';
 import {useState, useEffect} from "react";
+import {Link} from "react-router-dom";
 import { APIlink } from "../../Helper";
 
 const CardComponent = (props) => {
@@ -39,7 +40,7 @@ const CardComponent = (props) => {
     const result = await response.json();
     setData(result);
   }
-
+  console.log(data);
   useEffect(() => {
     getProjects();
   }, []);
@@ -49,7 +50,7 @@ const CardComponent = (props) => {
       padding: "0% 3% 3% 3%"
     }}>
     {
-      data && data.Items.map((data) => {
+      data && data.Items.map((data, index) => {
         return (<Card style={{
             textAlign: "left"
           }}>
@@ -74,10 +75,10 @@ const CardComponent = (props) => {
                   <Col xs="3">{data.totalSlots} students</Col>
                   <Col xs="3">INR {data.stipend}</Col>
                   <Col xs="3">
-                    <Button style={{
+                    <Link to ={"/Projects/" + data["project-uid"]}><Button style={{
                         backgroundColor: "#0F8797",
                         color: "white"
-                      }}>Apply</Button>
+                      }}>Apply</Button></Link>
                   </Col>
                 </Row>
               </CardBody>

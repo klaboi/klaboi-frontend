@@ -9,27 +9,15 @@ import CarouselComponent from './carouselComponent';
 import FooterComponent from './footerComponent';
 import axios from 'axios';
 import {HashRouter, Route, Link, Switch} from "react-router-dom";
+import { Container, Row, Col } from 'reactstrap';
 
-
-function example() {
+const Application = () => {
   const Name = localStorage.getItem('currentUserName');
-  return (<div className="App">
-    <Header/>
-    <div style={{
-        padding: "3%"
-      }}>
-      <h2 style={{
-          textAlign: "left"
-        }}>Hi {Name}!</h2>
-      <p style={{
-          textAlign: "left"
-        }}>These are the projects that are open to you.</p>
+  return (
+    <div className="App">
+     <h1>Hello</h1>
     </div>
-    <CardComponent/>
-    <CarouselComponent/>
-    <br/>
-    <FooterComponent/>
-  </div>);
+  );
 }
 
-export default example;
+export default Application;

@@ -14,6 +14,8 @@ import AuthRequired from './pages/Auth/AuthRequired';
 import Profile from './pages/Auth/Profile';
 import VerifyMail from './pages/Auth/VerifyMail';
 import AddProject from './components/Project/addProject';
+import ProjectDetail from './components/Project/ProjectDetail';
+import Application from './components/Project/Application';
 
 const publicRoutes = [
   {
@@ -68,6 +70,14 @@ const authRequiredRoutes = [
     path: "/Verify",
     exact: true,
     component: <VerifyMail/>
+  },
+  {
+    path: "/Projects/:project_uid",
+    component: <ProjectDetail/>
+  },
+  {
+    path: "/Projects/Apply/:project_uid",
+    component: <Application />
   },
 ]
 
