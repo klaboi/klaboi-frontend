@@ -3,7 +3,7 @@ import {
   Card, Button, CardImg, CardTitle, CardText, CardGroup,
   CardSubtitle, CardBody
 } from 'reactstrap';
-import logo from '../Assets/logo.svg';
+import logo from '../Assets/kgp.svg';
 const Example = (props) => {
   return (
     <div style={{padding:"3%"}}>

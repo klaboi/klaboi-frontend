@@ -92,6 +92,7 @@ function Register() {
             localStorage.setItem('isAuthenticated', true);
             //context.updateToken(JSON.stringify(json.data));
             history.push("/Verify");
+            localStorage.setItem('currentUserName', JSON.stringify(json.name));
             } else {
             setErr(json.error);
             console.log(json.error);
