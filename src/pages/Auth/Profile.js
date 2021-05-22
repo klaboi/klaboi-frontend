@@ -81,9 +81,9 @@ function Profile (props) {
   const handleSubmit = async (event, password, email, rollno, name, phoneno, bio) => {
     event.preventDefault();
 
-    const isValid = formValidation();
+    //const isValid = formValidation();
 
-    if(isValid) {
+    
     var mynewHeaders = new Headers();
     mynewHeaders.append("Content-Type", "application/json");
 
@@ -126,33 +126,32 @@ function Profile (props) {
         setErr(json.error);
         console.log(json.error);
         }
-      }
+      
 
     };
 
 
-  const formValidation = () => {
-    const emailErr = {};
-    const phonenoErr = {};
-    let isValid = true;
-    var regex = /\S+@iitkgp\.ac\.in$/;
-    var result = regex.test(email);
-    if(result == true){
-        isValid = true;
-    }
-    else{
-      emailErr.wrongFormat = "Incorrect format";
-      isValid = false;
-    }
-    if(phoneno.trim().length == 10) {
-      phonenoErr.phonenoShort = "Phone number must have 10 digits.";
-      isValid = false;
-    }
+  // const formValidation = () => {
+  //   const emailErr = {};
+  //   const phonenoErr = {};
+  //   //let isValid = true;
+  //   var regex = /\S+@iitkgp\.ac\.in$/;
+  //   var result = regex.test(email);
+  //   // if(result == true){
+  //   //     isValid = true;
+  //   // }
+  //   // else{
+  //   //   emailErr.wrongFormat = "Incorrect format";
+  //   //   isValid = false;
+  //   }
+  //   if(phoneno.trim().length == 10) {
+  //     phonenoErr.phonenoShort = "Phone number must have 10 digits.";
+  //     //isValid = false;
+  //   }
 
-    setEmailErr(emailErr);
-    setPhonenoErr(phonenoErr);
-    return isValid;
-  } 
+  //   setEmailErr(emailErr);
+  //   setPhonenoErr(phonenoErr);
+    //return isValid; 
     
   
     // return(
@@ -197,9 +196,9 @@ function Profile (props) {
                 className="form-control form-control-lg" placeholder=" institute email" aria-label="institute-email" aria-describedby="basic-addon2"/>
                 </label>
                 </div>
-                {Object.keys(emailErr).map((key)=>{
+                {/* {Object.keys(emailErr).map((key)=>{
                   return <div style={{color:"red"}}>{emailErr[key]}</div>
-                })}
+                })} */}
 
                 
                 <div className="input-group mb-3">
@@ -262,15 +261,16 @@ function Profile (props) {
                 className="form-control form-control-lg" placeholder="phone number" aria-label="phoneno" aria-describedby="basic-addon2"/>
                 </label>
                 </div>
-                {Object.keys(phonenoErr).map((key)=>{
+                {/* {Object.keys(phonenoErr).map((key)=>{
                   return <div style={{color:"red"}}>{phonenoErr[key]}</div>
-                })}
+                })} */}
 
+                <Link to ="/Projects">
                 <Submit
-                loginstate={loginstate}
+                
                 onClick={(event) => {
                   event.preventDefault();
-                  if (email != "" && password != "" && rollno != "" && name != "" && phoneno != "") {
+                  if (email != "" && password != "" && rollno != "" && name != "" && phoneno != "" && bio != "") {
                     handleSubmit(event, password, email, rollno, name, phoneno, bio);
                   } else {
                     setErr("Username and Password can't be empty");
@@ -280,6 +280,7 @@ function Profile (props) {
                 {" "}
                 save & proceed
               </Submit>
+              </Link>
                
                 </form>
                 </div>

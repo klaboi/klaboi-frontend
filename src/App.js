@@ -13,6 +13,7 @@ import { HashRouter, Route, Link, Switch } from "react-router-dom";
 import AuthRequired from './pages/Auth/AuthRequired';
 import Profile from './pages/Auth/Profile';
 import VerifyMail from './pages/Auth/VerifyMail';
+import AddProject from './components/Project/addProject';
 
 const publicRoutes = [
   {
@@ -52,6 +53,11 @@ const authRequiredRoutes = [
     path: "/Demo2",
     exact: true,
     component: <Project4Component/>
+  },
+  {
+    path: "/Add",
+    exact: true,
+    component: <AddProject />
   },
   {
     path: "/Profile",
