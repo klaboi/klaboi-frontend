@@ -63,7 +63,7 @@ const CardComponent = (props) => {
             <Col xs="9">
               <CardBody>
                 <CardTitle tag="h5" style={{fontWeight:"bold"}}>Project title</CardTitle>
-                <Row style = {{displey: "flex"}}><Col xs="6">{data.profName}</Col>
+                <Row style = {{display: "flex"}}><Col xs="6">{data.profName}</Col>
                  <Col xs="6">{data.dept}</Col>
                  </Row>
                 <CardText style={{color:"#000000"}}>{data.description}</CardText>
