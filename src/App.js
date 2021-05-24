@@ -6,6 +6,7 @@ import LogIn from './pages/Auth/Login'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Project from './pages/Project/Project';
 import ProjectComponent from './components/Project/projectComponent';
+import Detail from './components/Project/projectdetailComponent';
 import Project2Component from './components/Project/project2Component';
 import Project3Component from './components/Project/demo1Component';
 import Project4Component from './components/Project/demo2Component';
