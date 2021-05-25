@@ -7,30 +7,32 @@ import {Button} from 'react-bootstrap';
 import { encode } from "base-64";
 import { APIlink } from "../../Helper";
 import Header from '../../components/Header/Header';
+import { FormGroup, Label, Input, Message, Submit } from '../../components/common';
+import Media from 'react-media';
 
-const Submit = styled(Button)`
-  width: 200px;
-  cursor: ${(props) =>
-    props.loginState == "empty"
-      ? "default"
-      : props.loginState == "filled"
-      ? "pointer"
-      : ""};
-  background-color: ${(props) =>
-    props.loginState == "empty"
-      ? "#cacaca"
-      : props.loginState == "filled"
-      ? "#24ca7a"
-      : ""};
-  &:hover {
-    background-color: ${(props) =>
-      props.loginState == "empty"
-        ? "#cacaca"
-        : props.loginState == "filled"
-        ? "#05a16d"
-        : ""};
-  }
-`;
+// const Submit = styled(Button)`
+//   width: 200px;
+//   cursor: ${(props) =>
+//     props.loginState == "empty"
+//       ? "default"
+//       : props.loginState == "filled"
+//       ? "pointer"
+//       : ""};
+//   background-color: ${(props) =>
+//     props.loginState == "empty"
+//       ? "#cacaca"
+//       : props.loginState == "filled"
+//       ? "#24ca7a"
+//       : ""};
+//   &:hover {
+//     background-color: ${(props) =>
+//       props.loginState == "empty"
+//         ? "#cacaca"
+//         : props.loginState == "filled"
+//         ? "#05a16d"
+//         : ""};
+//   }
+// `;
 
 function LogIn() {
 
@@ -67,7 +69,7 @@ function LogIn() {
         //console.log(json);
         //console.log(response);
         //console.log(JSON.stringify(myHeaders));
-        
+
 
         if (response.status===200) {
             setErr(null);
@@ -85,15 +87,135 @@ function LogIn() {
             <div>
                 <Header />
             <div className="register row justify-content-center align-items-center">
+              <Media query={{ maxWidth: 795 }}>
+          {matches =>
+            matches ? (
+              <div style={{width: '75%'}}>
+                 <h1>Log in</h1>
+                 <Link to="/Register">or create a new account</Link>
+                 <br></br>
+                 <br></br>
+                 <form>
 
-             <div className = "w-50 p-3">
+                 <FormGroup>
+                   {/* <Label htmlFor="label">Label</Label> */}
+                   <Input id="email"
+                   value={email}
+                   onChange= {(event) => {
+                       setErr("");
+                       setEmail(event.target.value); }}
+                   className="" placeholder=" institute email" aria-label="institute-email" aria-describedby="basic-addon2"/>
+                   {/* <Message>This is the validation message</Message> */}
+                 </FormGroup>
+
+                 <FormGroup>
+                   {/* <Label htmlFor="label">Label</Label> */}
+                   <Input input type="password" id="password"
+                   value={password}
+                   onChange={(event) => {
+                       setPassword(event.target.value);
+                       setErr("");
+                   }}
+                   className="" placeholder="password" aria-label="password" aria-describedby="basic-addon2"/>
+                   <small
+                   style={{ color: "red", height: "10px", display: "inline-block" }}
+                   >
+                   {err == "incorrect password"
+                       ? "Incorrect Password"
+                       : err == "Username and Password can't be empty"
+                       ? err
+                       : ""}
+                   </small>
+                   {/* <Message>This is the validation message</Message> */}
+                 </FormGroup>
+
+                 <Submit
+                 //loginState={loginState}
+                 onClick={(event) => {
+                   event.preventDefault();
+                   if (email != "" && password != "") {
+                     handleSubmit(event, password, email);
+                   } else {
+                     setErr("Username and Password can't be empty");
+                   }
+                 }}
+               >
+                 {" "}
+                 <b>continue</b>
+               </Submit>
+
+                 </form>
+                 </div>
+            ) : (
+              <div style={{width: '50%'}}>
+                 <h1>Log in</h1>
+                 <Link to="/Register">or create a new account</Link>
+                 <br></br>
+                 <br></br>
+                 <form>
+
+                 <FormGroup>
+                   {/* <Label htmlFor="label">Label</Label> */}
+                   <Input id="email"
+                   value={email}
+                   onChange= {(event) => {
+                       setErr("");
+                       setEmail(event.target.value); }}
+                   className="" placeholder=" institute email" aria-label="institute-email" aria-describedby="basic-addon2"/>
+                   {/* <Message>This is the validation message</Message> */}
+                 </FormGroup>
+
+                 <FormGroup>
+                   {/* <Label htmlFor="label">Label</Label> */}
+                   <Input input type="password" id="password"
+                   value={password}
+                   onChange={(event) => {
+                       setPassword(event.target.value);
+                       setErr("");
+                   }}
+                   className="" placeholder="password" aria-label="password" aria-describedby="basic-addon2"/>
+                   <small
+                   style={{ color: "red", height: "10px", display: "inline-block" }}
+                   >
+                   {err == "incorrect password"
+                       ? "Incorrect Password"
+                       : err == "Username and Password can't be empty"
+                       ? err
+                       : ""}
+                   </small>
+                   {/* <Message>This is the validation message</Message> */}
+                 </FormGroup>
+
+                 <Submit
+                 //loginState={loginState}
+                 onClick={(event) => {
+                   event.preventDefault();
+                   if (email != "" && password != "") {
+                     handleSubmit(event, password, email);
+                   } else {
+                     setErr("Username and Password can't be empty");
+                   }
+                 }}
+               >
+                 {" "}
+                 <b>continue</b>
+               </Submit>
+
+                 </form>
+                 </div>
+            )
+          }
+        </Media>
+
+
+             {/* <div className = "w-50 p-3">
                 <h1>Log in</h1>
                 <Link to="/Register">or create a new account</Link>
                 <br></br>
                 <br></br>
                 <form>
                 <div className="input-group mb-3">
-                <input type="text" id="email"   
+                <input type="text" id="email"
                 value={email}
                 onChange= {(event) => {
                     setErr("");
@@ -121,9 +243,9 @@ function LogIn() {
                     : ""}
                 </small>
 
-               
 
-                
+
+
                 <Submit
                 //loginState={loginState}
                 onClick={(event) => {
@@ -138,12 +260,12 @@ function LogIn() {
                 {" "}
                 continue
               </Submit>
-               
+
                 </form>
-                </div>
-                
-                
-                
+                </div> */}
+
+
+
 
             </div>
             </div>
