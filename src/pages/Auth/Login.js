@@ -74,7 +74,7 @@ function LogIn() {
             localStorage.setItem('isAuthenticated', true);
             const authdata = window.btoa(email+ ':' + password);
             localStorage.setItem('currentUser', JSON.stringify(authdata));
-            history.push("/Projects");
+            history.push("/Projects/All");
             } else {
             setErr("Invalid credentials");
             console.log(err);

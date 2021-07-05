@@ -73,6 +73,7 @@ const Profile = () => {
   
   console.log(data);
   const user_uid= data["user-uid"];
+  console.log(user_uid);
  
 
   const getAvatar = async() => {
