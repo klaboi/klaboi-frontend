@@ -34,21 +34,19 @@ const Submit = styled(Button)`
   }
 `;
 
-function Profile (props) {
+const Profile = () => {
   const credentials = localStorage.getItem('currentUser');
   
 
   const [data, setData] = React.useState([]);
-  const [err, setErr] = React.useState(null);
+  const [avatarURL, setAvatarURL] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [rollno, setRollno] = React.useState("");
   const [name, setName] = React.useState("");
   const [phoneno, setPhoneno] = React.useState("");
   const [bio, setBio] = React.useState("");
-  const [emailErr, setEmailErr] = React.useState({});
-  const [phonenoErr, setPhonenoErr] = React.useState({});
-  const [loginstate, setloginstate] = React.useState("empty");
+ 
 
   const history = useHistory();
 
@@ -66,22 +64,50 @@ function Profile (props) {
       try {
           response = await fetch (`${APIlink}/users`, requestOptions)
       } catch (err) {
-          setErr("Incorrect Password. Please Retry.");
+          console.log("Incorrect Password. Please Retry.");
           return;
       }
       const result = await response.json();
       setData(result);
   };
+  
+  console.log(data);
+  const user_uid= data["user-uid"];
+ 
+
+  const getAvatar = async() => {
+    var myHeaders = new Headers();
+    myHeaders.set('Authorization', 'Basic ' + credentials);
+    var requestOptions = {
+      method: 'GET',
+      headers: myHeaders,
+      redirect: 'follow'
+      };
+     
+      let response;
+
+      try {
+          response = await fetch (`${APIlink}/uploads/resume/${user_uid}`, requestOptions)
+      } catch (err) {
+          console.log("Failed");
+          return;
+      }
+      const result = await response.text();
+      setAvatarURL(result);
+      console.log(avatarURL);
+
+  };
+  
 
   useEffect(() => {
     getUser();
+    getAvatar();
+    
   }, []); //this will trigger only for the first time when the component is mounted
 
 
   const handleSubmit = async (event, password, email, rollno, name, phoneno, bio) => {
     event.preventDefault();
-
-    //const isValid = formValidation();
 
     
     var mynewHeaders = new Headers();
@@ -108,7 +134,7 @@ function Profile (props) {
     try {
         response = await fetch (`${APIlink}/users`, requestOptions)
     } catch (err) {
-        setErr("Incorrect Password. Please Retry.");
+        console.log("Incorrect Password. Please Retry.");
         return;
     }
     const result = await response.text();
@@ -119,11 +145,9 @@ function Profile (props) {
     
 
     if (response.status===200) {
-        setErr(null);
         localStorage.setItem('isAuthenticated', true);
         history.push("/Projects");
         } else {
-        setErr(json.error);
         console.log(json.error);
         }
       
@@ -168,18 +192,18 @@ function Profile (props) {
 
              <div className = "w-50 p-3">
                 <h1>Profile</h1>
+                {/* <img src={avatarURL}/> */}
+                <img src={avatarURL.replace(/['"]+/g, '')} style={{width:"192px", height:"192px"}}/>
                 <br></br>
                 <form>
+                
 
                 <div className="input-group mb-3">
               
                 <input type="text" id="bio" 
                 value = {bio}
                 onChange= {(event) => {
-                  setBio(event.target.value); 
-                  if (event.target.value != "" && email != "" && password != "" && rollno != "" && name != "" && phoneno != "") {
-                    setloginstate("filled");
-                  }}}  
+                  setBio(event.target.value); }}
                 className="form-control form-control-lg" placeholder=" Bio" aria-label="bio" aria-describedby="basic-addon2"/>
                 </div>
 
@@ -189,10 +213,7 @@ function Profile (props) {
                 <input type="text" id="email"   
                 defaultValue={data.email}
                 onChange= {(event) => {
-                    setEmail(event.target.value); 
-                    if (event.target.value != "" && password != "" && rollno != "" && name != "" && phoneno != "") {
-                      setloginstate("filled");
-                    }}}
+                    setEmail(event.target.value); }}
                 className="form-control form-control-lg" placeholder=" institute email" aria-label="institute-email" aria-describedby="basic-addon2"/>
                 </label>
                 </div>
@@ -208,7 +229,6 @@ function Profile (props) {
                 defaultValue={data.password}
                 onChange={(event) => {
                     setPassword(event.target.value);
-                    setErr("");
                 }}
                 className="form-control form-control-lg" placeholder="password" aria-label="password" aria-describedby="basic-addon2"/>
                 </label>
@@ -221,10 +241,6 @@ function Profile (props) {
                 defaultValue={data.rollno}
                 onChange={(event) => {
                     setRollno(event.target.value);
-                    setErr("");
-                    if (event.target.value != "" && password != "" && email != "" && name != "" && phoneno != "") {
-                      setloginstate("filled");
-                    }
                 }}
                 className="form-control form-control-lg" placeholder="roll number" aria-label="rollno" aria-describedby="basic-addon2"/>
                 </label>
@@ -237,10 +253,6 @@ function Profile (props) {
                 defaultValue={data.name}
                 onChange={(event) => {
                     setName(event.target.value);
-                    setErr("");
-                    if (event.target.value != "" && password != "" && rollno != "" && email != "" && phoneno != "") {
-                      setloginstate("filled");
-                    }
                 }}
                 className="form-control form-control-lg" placeholder="full name" aria-label="name" aria-describedby="basic-addon2"/>
                 </label>
@@ -253,10 +265,6 @@ function Profile (props) {
                 defaultValue={data.phoneno}
                 onChange={(event) => {
                     setPhoneno(event.target.value);
-                    setErr("");
-                    if (event.target.value != "" && password != "" && rollno != "" && name != "" && email != "") {
-                      setloginstate("filled");
-                    }
                 }}
                 className="form-control form-control-lg" placeholder="phone number" aria-label="phoneno" aria-describedby="basic-addon2"/>
                 </label>
@@ -273,7 +281,7 @@ function Profile (props) {
                   if (email != "" && password != "" && rollno != "" && name != "" && phoneno != "" && bio != "") {
                     handleSubmit(event, password, email, rollno, name, phoneno, bio);
                   } else {
-                    setErr("Username and Password can't be empty");
+                    console.log("Username and Password can't be empty");
                   }
                 }}
               >

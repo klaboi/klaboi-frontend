@@ -52,33 +52,37 @@ const CardComponent = (props) => {
     {
       data && data.Items.map((data, index) => {
         return (<Card style={{
-            textAlign: "left"
+            textAlign: "left",
+            margin:"3%",
+            padding:"3%"
           }}>
           <Row style={{
               display: "flex"
             }}>
-            <Col xs="3">
-              <CardImg top="top" style = {{width:"100%", margin: "0.5rem"}} src={logo} alt="Card image cap"/>
+            <Col sm="3">
+              <CardImg top="top" style = {{width:"80%", margin: "0.5rem"}} src={logo} alt="Card image cap"/>
             </Col>
-            <Col xs="9">
+            <Col sm="9">
               <CardBody>
                 <CardTitle tag="h5" style={{fontWeight:"bold"}}>Project title</CardTitle>
-                <Row style = {{displey: "flex"}}><Col xs="6">{data.profName}</Col>
-                 <Col xs="6">{data.dept}</Col>
+                <Row style = {{display: "flex"}}><Col sm="6">{data.profName}</Col>
+                 <Col sm="6">{data.dept}</Col>
                  </Row>
                 <CardText style={{color:"#000000"}}>{data.description}</CardText>
                 <Row style={{
                     display: "flex",
                     fontSize:"20px"
                   }}>
-                  <Col xs="3">{data.duration} months</Col>
-                  <Col xs="3">{data.totalSlots} students</Col>
-                  <Col xs="3">INR {data.stipend}</Col>
-                  <Col xs="3">
+                  <Col sm="3" style={{alignItems:"center"}}><img src="a1.png" alt="" style={{width:"20%"}}/>{data.duration} months</Col>
+                  <Col sm="3" style={{alignItems:"center"}}><img src="a3.png" alt="" style={{width:"20%"}}/>{data.totalSlots} students</Col>
+                  <Col sm="3" style={{alignItems:"center"}}><img src="a2.png" alt="" style={{width:"20%"}}/>INR {data.stipend}</Col>
+                  <Col sm="3">
+                    <center>
                     <Link to ={"/Projects/" + data["project-uid"]}><Button style={{
                         backgroundColor: "#0F8797",
                         color: "white"
                       }}>Apply</Button></Link>
+                      </center>
                   </Col>
                 </Row>
               </CardBody>
