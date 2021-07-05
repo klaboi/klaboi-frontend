@@ -16,7 +16,7 @@ import {Link, withRouter} from "react-router-dom";
 import { APIlink } from "../../Helper";
 import Header from '../Header/Header';
 import { Translate } from 'aws-sdk';
-import Footer from '../Footer/Footer';
+import Footer from './footerComponent';
 import Carousel from '../Project/carouselComponent'
 
 const ProjectDetail = (props) => {
@@ -61,8 +61,8 @@ const ProjectDetail = (props) => {
     return <div>Fetching Data ...</div>
 
   return (
-    <div className="home" style ={{minHeight:"100vh", display:"flex", flexDirection:"column"}}>
-    <Header/>
+    <div style={{height:"auto"}}>
+    <Header style={{width:"100%", margin:"0"}}/>
         
         <div >
           <img src="https://socialmediacollege.com/wp-content/uploads/5-Creative-Ways-to-Use-Facebooks-Carousel-Ads.png" alt="" style={{maxWidth:"100%", padding:"5%", backgroundSize:"cover", backgroundPosition:"cover"}}/>
@@ -70,17 +70,17 @@ const ProjectDetail = (props) => {
         <div className="container" style={{padding: "1rem"}}>
         <div>
             <h2>Project Title</h2>
-            <Row style = {{display: "flex"}}><Col xs="3">{project?.Item?.profName || ''}</Col>
-                 <Col xs="3">{project?.Item?.dept || ''}</Col>
+            <Row style = {{display: "flex"}}><Col sm="3">{project?.Item?.profName || ''}</Col>
+                 <Col sm="3">{project?.Item?.dept || ''}</Col>
             </Row>             
         </div>
         <br/>
         <div style={{fontWeight:"bold"}}>
-          <Row style = {{display: "flex"}}><Col xs="3">{project?.Item?.duration || ''} Months</Col>
-                 <Col xs="3">{project?.Item?.stipend || ''}</Col>
+          <Row style = {{display: "flex", alignContent:"center"}}><Col sm="3" style={{alignItems:"center"}}><img src="a1.png" alt="" style={{width:"20%"}}/>{project?.Item?.duration || ''} Months</Col>
+                 <Col sm="3" style={{alignItems:"center"}}><img src="a2.png" alt="" style={{width:"20%"}}/>{project?.Item?.stipend || ''}</Col>
           </Row>
-          <Row style = {{displey: "flex"}}><Col xs="3">{project?.Item?.totalSlots || ''}</Col>
-                 <Col xs="3">31st January</Col>
+          <Row style = {{displey: "flex", alignContent:"center"}}><Col sm="3" style={{alignItems:"center"}}><img src="a3.png" alt="" style={{width:"20%"}}/>{project?.Item?.totalSlots || ''}</Col>
+                 <Col sm="3" style={{alignItems:"center"}}><img src="a4.png" alt="" style={{width:"20%"}}/>31st January</Col>
           </Row>
         </div>
         <br/><br/>
@@ -104,31 +104,34 @@ const ProjectDetail = (props) => {
         <br/>
         <div>
             <h4>Tags</h4><br/>
-            <Row style = {{display: "flex"}}><Col xs="2"><Button style={{
+            <Row style = {{display: "flex"}}><Col sm="2"><Button style={{
                         backgroundColor: "#d3d3d3",
                         color: "white",
                         width: "100%",
                         textAlign:"center",
                         borderRadius: "20px",
-                        borderColor: "#d3d3d3"
+                        borderColor: "#d3d3d3",
+                        margin:"1%"
                       }}>Tag 1
             </Button></Col>
-                 <Col xs="2"><Button style={{
+                 <Col sm="2"><Button style={{
                         backgroundColor: "#d3d3d3",
                         color: "white",
                         width: "100%",
                         textAlign:"center",
                         borderRadius: "20px",
-                        borderColor: "#d3d3d3"
+                        borderColor: "#d3d3d3",
+                        margin:"1%"
                       }}>Tag 2
             </Button></Col>
-                 <Col xs="2"><Button style={{
+                 <Col sm="2"><Button style={{
                         backgroundColor: "#d3d3d3",
                         color: "white",
                         width: "100%",
                         textAlign:"center",
                         borderRadius: "20px",
-                        borderColor: "#d3d3d3"
+                        borderColor: "#d3d3d3",
+                        margin:"1%"
                       }}>Tag 3
             </Button></Col>
             </Row>
@@ -140,7 +143,7 @@ const ProjectDetail = (props) => {
        <Button style={{
                         backgroundColor: "#0F8797",
                         color: "white",
-                        width: "15%",
+                        width: "20%",
                         textAlign:"center"
                       }}>Apply
        </Button></Link>
