@@ -5,7 +5,7 @@ import igURL from '../Assets/ig_logo.svg'
 import {Container, Row, Col} from 'reactstrap';
 
 const Footer = () => (
-    <div className="container">
+    <div className="footer">
       
         <Row style={{backgroundColor:"#0F8797"}}>
             <Col>
@@ -26,8 +26,8 @@ const Footer = () => (
             <Col>
                 <h2>Reach Us</h2>
                 <p>connect@iit-techambit.in</p>    
-                <li><a href ='#'><img src={fbURL}/></a></li>
-                <li><a href ='#'><img src={igURL}/></a></li>
+                <a href ='#' style={{marginRight:"0.5%"}}><img src={fbURL}/></a>
+                <a href ='#'><img src={igURL}/></a>
             </Col>
         </Row>
       

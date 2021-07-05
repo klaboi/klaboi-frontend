@@ -1,4 +1,6 @@
 import React from 'react';
+import fbURL from '../Assets/fb_logo.svg'
+import igURL from '../Assets/ig_logo.svg'
 import {
   Card, Button, CardImg, CardTitle, CardText, CardGroup,
   CardSubtitle, CardBody
@@ -21,6 +23,8 @@ const Footer = (props) => {
             <Col sm="3" style={{textAlign:"left"}}>
                 <h4>Reach Us</h4>
                 <p>connect@iit-techambit.in</p>
+                <a href ='#' style={{marginRight:"0.5%"}}><img src={fbURL}/></a>
+                <a href ='#'><img src={igURL}/></a>
             </Col>
         </Row>
     </div>
