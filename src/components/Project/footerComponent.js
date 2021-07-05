@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  Card, Button, CardImg, CardTitle, CardText, CardGroup,
-  CardSubtitle, CardBody
-} from 'reactstrap';
+
 import { Container, Row, Col } from 'reactstrap';
 import logo from '../Assets/logo.svg';
 const Footer = (props) => {

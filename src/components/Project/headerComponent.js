@@ -7,14 +7,8 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText
 } from 'reactstrap';
-import ProjectComponent from './projectComponent';
-import Project2Component from './project2Component';
+
 const Example = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 

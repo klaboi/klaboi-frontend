@@ -1,9 +1,5 @@
 import React, {Component} from 'react';
-import FooterComponent from './footerComponent';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-import Footer from '../Footer/Footer'
 import Header from '../Header/Header'
-import { HashRouter, Route, Link, Switch } from "react-router-dom";
 
 
 
