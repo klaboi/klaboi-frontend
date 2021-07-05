@@ -25,6 +25,11 @@ const publicRoutes = [
       component: LogIn
   },
   {
+    path: "/Detail",
+    exact: true,
+    component:Detail
+},
+  {
       path: "/",
       exact: true,
       component: Home

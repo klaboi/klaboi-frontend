@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './Home.scss';
 import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
+import Footer from '../../components/Project/footerComponent';
 import homepageURL from '../../components/Assets/homepicture.svg';
 import { render } from '@testing-library/react';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -27,8 +27,9 @@ class Home extends Component{
 
   render(){
     return (
-    <div className="home" style ={{minHeight:"100vh", display:"flex", flexDirection:"column"}}>
+    <div>
     <Header/>
+      <br/><br/><br/><br/><br/>
       <div className="container" style={{padding: "2rem"}}>
         <div className="row">
             <div className="column first">
@@ -57,7 +58,7 @@ class Home extends Component{
             </div>
         </div>
       </div>
-      <br></br>
+      <br/><br/><br/><br/><br/>
       <Footer/>
     </div>
   );
