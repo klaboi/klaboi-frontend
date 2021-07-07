@@ -1,3 +1,11 @@
+# iResearch - Frontend
+
+This repository hosts the code for the frontend part of iResearch. The front is a static web app written using react. 
+
+Standard React App documentation follows - 
+
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
