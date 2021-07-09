@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
-import './Home.scss';
+// import './Home.scss';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Project/footerComponent';
 import homepageURL from '../../components/Assets/homepicture.svg';
 import { render } from '@testing-library/react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './custom.scss'
+// import './custom.scss'
 import { HashRouter, Route, Link, Switch } from "react-router-dom";
+
 
 
 

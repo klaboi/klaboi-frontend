@@ -9,7 +9,7 @@ const Header = () => (
     <div className="header">
       <nav class = "navbar">
         <a class = "navbar-brand" href="#">  
-          <img src={logoUrl} alt="iResearch" class="d-inline-block align-top" />
+          {/* <img src={logoUrl} alt="iResearch" class="d-inline-block align-top" /> */}
           iResearch
         </a>
       </nav>
