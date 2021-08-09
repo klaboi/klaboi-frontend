@@ -14,7 +14,7 @@ import axios from 'axios';
 import {useState, useEffect} from "react";
 import {Link, withRouter} from "react-router-dom";
 import { APIlink } from "../../Helper";
-import Header from '../Header/Header';
+import Navbar from '../Navbar';
 import { Translate } from 'aws-sdk';
 import Footer from './footerComponent';
 import Carousel from '../Project/carouselComponent'
@@ -62,7 +62,7 @@ const ProjectDetail = (props) => {
 
   return (
     <div style={{height:"auto"}}>
-    <Header style={{width:"100%", margin:"0"}}/>
+    <Navbar style={{width:"100%", margin:"0"}}/>
         
         <div >
           <img src="https://socialmediacollege.com/wp-content/uploads/5-Creative-Ways-to-Use-Facebooks-Carousel-Ads.png" alt="" style={{maxWidth:"100%", padding:"5%", backgroundSize:"cover", backgroundPosition:"cover"}}/>
@@ -139,9 +139,9 @@ const ProjectDetail = (props) => {
       </div>
       <br></br>
       <center>
-      <Link to ={"/Projects/Apply/"+ project?.Item?.["project-uid"] || ''}>
+      <Link to ={"/Projects/Application/"+ project?.Item?.["project-uid"] || ''}>
        <Button style={{
-                        backgroundColor: "#0F8797",
+                        backgroundColor: "#E67B5D",
                         color: "white",
                         width: "20%",
                         textAlign:"center"

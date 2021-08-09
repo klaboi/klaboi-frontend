@@ -15,7 +15,7 @@ import {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
 import { APIlink } from "../../Helper";
 import '../../pages/Project/Project.css';
-import Header from '../Header/Header'
+import Navbar from '../Navbar';
 import CarouselComponent from './carouselComponent';
 import FooterComponent from './footerComponent';
 
@@ -80,10 +80,11 @@ export function CardComponent ({props}) {
                   <Col sm="3" style={{alignItems:"center"}}><img src="a1.png" alt="" style={{width:"20%"}}/>{data.duration} months</Col>
                   <Col sm="3" style={{alignItems:"center"}}><img src="a3.png" alt="" style={{width:"20%"}}/>{data.totalSlots} students</Col>
                   <Col sm="3" style={{alignItems:"center"}}><img src="a2.png" alt="" style={{width:"20%"}}/>INR {data.stipend}</Col>
-                  <Col sm="3" style={{background:"rgb(15, 135, 151)", padding:"0", margin:"0"}}>
+                  <Col sm="3" style={{background:"#E67B5D", padding:"0", margin:"0"}}>
                     <center>
-                    <Link to ={"/Projects/" + data["project-uid"]}><Button style={{
-                        backgroundColor: "#0F8797",
+                    <Link to ={"/Projects/Details/" + data["project-uid"]}><Button style={{
+                        backgroundColor: "#E67B5D",
+                        border:"#E67B5D",
                         color: "white"
                       }}>Details</Button></Link>
                       </center>
@@ -102,7 +103,7 @@ export function CardComponent ({props}) {
 function ProfProjects() {
     const Name = localStorage.getItem('currentUserName');
     return (<div className="App">
-      <Header/>
+      <Navbar />
       <div style={{
           padding: "3%"
         }}>

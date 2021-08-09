@@ -1,5 +1,4 @@
 import React from 'react';
-import './Footer.css'; 
 import fbURL from '../Assets/fb_logo.svg'
 import igURL from '../Assets/ig_logo.svg'
 import {Container, Row, Col} from 'reactstrap';

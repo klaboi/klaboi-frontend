@@ -6,7 +6,7 @@ import './Register.scss'
 import {Button} from 'react-bootstrap';
 import { encode } from "base-64";
 import { APIlink } from "../../Helper";
-import Header from '../../components/Header/Header';
+import Navbar from '../../components/Navbar';
 
 const Submit = styled(Button)`
   width: 200px;
@@ -83,7 +83,7 @@ function LogIn() {
 
         return (
             <div>
-                <Header />
+                <Navbar />
             <div className="register row justify-content-center align-items-center">
 
              <div className = "w-50 p-3">

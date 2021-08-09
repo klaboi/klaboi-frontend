@@ -4,12 +4,12 @@ import { Link, useHistory } from "react-router-dom";
 import styled from "styled-components";
 import './Register.scss'
 import verify from '../../components/Assets/verifypic.svg';
-import Header from '../../components/Header/Header';
+import Navbar from '../../components/Navbar';
 
 function VerifyMail() {
     return (
         <div>
-            <Header/>
+            <Navbar/>
             <div style={{position: 'absolute', left: '50%', top: '50%',
                 transform: 'translate(-50%, -50%)'}}>
             <img src = {verify}/>

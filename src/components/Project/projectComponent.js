@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import '../../pages/Project/Project.css';
-import Header from '../Header/Header'
+import Navbar from '../Navbar';
 import CardComponent from './cardComponent';
 import CarouselComponent from './carouselComponent';
 import FooterComponent from './footerComponent';
@@ -9,7 +9,7 @@ import FooterComponent from './footerComponent';
 function example() {
   const Name = localStorage.getItem('currentUserName');
   return (<div className="App">
-    <Header/>
+    <Navbar/>
     <div style={{
         padding: "3%"
       }}>

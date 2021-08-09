@@ -2,10 +2,10 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, useHistory, useState } from "react-router-dom";
 import styled from "styled-components";
-import './Project.scss';
+// import './Project.scss';
 import {Button} from 'react-bootstrap';
 import { APIlink } from "../../Helper";
-import Header from '../../components/Header/Header';
+import Navbar from '../Navbar';
 
 
 const Submit = styled(Button)`
@@ -109,7 +109,7 @@ function AddProject() {
 
         return (
             <div>
-                <Header />
+                <Navbar />
             <div className="register row justify-content-center align-items-center">
 
              <div className = "w-50 p-3">

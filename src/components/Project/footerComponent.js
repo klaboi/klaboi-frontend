@@ -9,7 +9,7 @@ import { Container, Row, Col } from 'reactstrap';
 import logo from '../Assets/logo.svg';
 const Footer = (props) => {
   return (
-    <div style={{backgroundColor:"#0F8797"}}>
+    <div style={{backgroundColor:"#3F6CA1"}}>
         <Row style={{display:"flex", padding:"3%", color:"white", width:"100%"}}>
             <Col sm="6" style={{textAlign:"left"}}>
                 <h4>iResearch</h4>

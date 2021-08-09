@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { APIlink } from "../../Helper";
-import Header from '../../components/Header/Header';
+import Navbar from '../Navbar';
 
 const Applicants = () => {
     const credentials = localStorage.getItem('currentUser');

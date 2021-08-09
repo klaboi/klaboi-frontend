@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Header from '../Header/Header'
+import Navbar from '../Navbar';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 
@@ -40,7 +40,7 @@ render() {
 
   return (
     <div>
-      <Header />
+      <Navbar />
       <h1>Project Title Here</h1>  
     <div className="register row justify-content-center align-items-center">
        

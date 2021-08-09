@@ -78,8 +78,8 @@ const CardComponent = (props) => {
                   <Col sm="3" style={{alignItems:"center"}}><img src="a2.png" alt="" style={{width:"20%"}}/>INR {data.stipend}</Col>
                   <Col sm="3">
                     <center>
-                    <Link to ={"/Projects/" + data["project-uid"]}><Button style={{
-                        backgroundColor: "#0F8797",
+                    <Link to ={"/Projects/Details/" + data["project-uid"]}><Button style={{
+                        backgroundColor: "#E67B5D",
                         color: "white"
                       }}>Apply</Button></Link>
                       </center>

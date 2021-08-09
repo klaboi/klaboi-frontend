@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import Header from '../Header/Header';
+import Navbar from '../Navbar';
 import Footer from '../Footer/Footer';
 import Carousel from '../Project/carouselComponent'
 import 'bootstrap/dist/css/bootstrap.min.css';

@@ -3,7 +3,6 @@ import './App.css';
 import Home from './pages/Home/Home'
 import Register from './pages/Auth/Register'
 import LogIn from './pages/Auth/Login'
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Project from './pages/Project/Project';
 import ProjectComponent from './components/Project/projectComponent';
 import Detail from './components/Project/projectdetailComponent';
@@ -84,13 +83,14 @@ const authRequiredRoutes = [
     component: <VerifyMail/>
   },
   {
-    path: "/Projects/:project_uid",
-    component: <ProjectDetail/>
-  },
-  {
-    path: "/Projects/Apply/:project_uid",
+    path: "/Projects/Application/:project_uid",
     component: <Application />
   },
+  {
+    path: "/Projects/Details/:project_uid",
+    component: <ProjectDetail/>
+  },
+  
 ]
 
 const pathsForLayout = routes => routes.map(route => route.path)

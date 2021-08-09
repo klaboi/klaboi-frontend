@@ -5,7 +5,7 @@ import styled from "styled-components";
 import './Register.scss'
 import {Button} from 'react-bootstrap';
 import { APIlink } from "../../Helper";
-import Header from '../../components/Header/Header';
+import Navbar from '../../components/Navbar';
 import AuthRequired from './AuthRequired';
 
 
@@ -126,7 +126,7 @@ function Register() {
 
         return (
             <div>
-                <Header />
+                <Navbar />
             <div className="register row justify-content-center align-items-center">
 
              <div className = "w-50 p-3">
