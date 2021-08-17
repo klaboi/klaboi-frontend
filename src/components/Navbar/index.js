@@ -11,13 +11,15 @@ import {
   NavBtn,
   NavBtnLink,
 } from "./NavbarElements";
+import Logo from '../Assets/logo2.svg'
 
 const Navbar = ({ toggle }) => {
   return (
     <>
       <Nav>
         <NavbarContainer>
-          <NavLogo to="/">Klaboi</NavLogo>
+          {/* <NavLogo to="/">Klaboi</NavLogo> */}
+          <NavLogo to="/"><img style={{width:"150px"}} src={Logo}/></NavLogo>
           <MobileIcon onClick={toggle}>
             <FaBars />
           </MobileIcon>
