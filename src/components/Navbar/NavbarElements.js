@@ -82,6 +82,7 @@ export const NavLinks = styled(LinkS)`
   align-items: center;
   text-decoration: none;
   padding: 0 1rem;
+  margin-top: 0.5rem;
   height: 100%;
   cursor: pointer;
 
