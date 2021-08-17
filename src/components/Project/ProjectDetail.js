@@ -13,7 +13,6 @@ import {Container, Row, Col} from 'reactstrap';
 import axios from 'axios';
 import {useState, useEffect} from "react";
 import {Link, withRouter} from "react-router-dom";
-import { APIlink } from "../../Helper";
 import Navbar from '../Navbar';
 import { Translate } from 'aws-sdk';
 import Footer from './footerComponent';
@@ -40,7 +39,7 @@ const ProjectDetail = (props) => {
   let response;
 
     try {
-        response = await fetch (`${APIlink}/projects/`+ props.match.params.project_uid, requestOptions)
+        response = await fetch (process.env.REACT_APP_API_ENDPOINT +"/projects/"+ props.match.params.project_uid, requestOptions)
     } catch (err) {
         return;
     }finally{

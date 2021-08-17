@@ -1,7 +1,6 @@
 import logo from '../Assets/logo.svg';
 import React, { Component } from "react";
 import HeaderComponent from './headerComponent';
-import Footer from '../Footer/Footer'
 import CardComponent from './cardComponent';
 import CarouselComponent from './carouselComponent';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";

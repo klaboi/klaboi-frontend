@@ -4,7 +4,6 @@ import { Link, useHistory } from "react-router-dom";
 import styled from "styled-components";
 import './Register.scss'
 import {Button} from 'react-bootstrap';
-import { APIlink } from "../../Helper";
 import Navbar from '../../components/Navbar';
 import AuthRequired from './AuthRequired';
 
@@ -75,7 +74,7 @@ function Register() {
         let response;
 
         try {
-            response = await fetch (`${APIlink}/users`, requestOptions)
+            response = await fetch (process.env.REACT_APP_API_ENDPOINT +"/users", requestOptions)
         } catch (err) {
             setErr("Incorrect Password. Please Retry.");
             return;
