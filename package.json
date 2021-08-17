@@ -33,7 +33,8 @@
     "yarn": "^1.22.10"
   },
   "scripts": {
-    "start": "env-cmd -f .env.dev react-scripts startt",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "start:dev": "env-cmd -f .env.dev react-scripts start",
     "start:prod": "env-cmd -f .env.prod react-scripts start",
     "build:dev": "env-cmd -f .env.dev react-scripts build",
