@@ -33,7 +33,7 @@ const CardComponent = (props) => {
   let response;
 
     try {
-        response = await fetch (`${APIlink}/projects/all`, requestOptions)
+        response = await fetch (process.env.REACT_APP_API_ENDPOINT +"/projects/all", requestOptions)
     } catch (err) {
         return;
     }

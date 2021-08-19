@@ -13,7 +13,6 @@ import {Container, Row, Col} from 'reactstrap';
 import axios from 'axios';
 import {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
-import { APIlink } from "../../Helper";
 import '../../pages/Project/Project.css';
 import Navbar from '../Navbar';
 import CarouselComponent from './carouselComponent';
@@ -37,7 +36,7 @@ export function CardComponent ({props}) {
   let response;
 
     try {
-        response = await fetch (`${APIlink}/projects/owner`, requestOptions)
+        response = await fetch (process.env.REACT_APP_API_ENDPOINT +"/projects/owner", requestOptions)
     } catch (err) {
         return;
     }

@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { APIlink } from "../../Helper";
 import Navbar from '../Navbar';
 
 const Applicants = () => {
@@ -19,7 +18,7 @@ const Applicants = () => {
           let response;
     
           try {
-              response = await fetch (`${APIlink}/users`, requestOptions)
+              response = await fetch (process.env.REACT_APP_API_ENDPOINT +"/users", requestOptions)
           } catch (err) {
               console.log("Incorrect Password. Please Retry.");
               return;

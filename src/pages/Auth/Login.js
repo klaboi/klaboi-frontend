@@ -7,6 +7,7 @@ import {Button} from 'react-bootstrap';
 import { encode } from "base-64";
 import { APIlink } from "../../Helper";
 import Navbar from '../../components/Navbar';
+import Sidebar from '../../components/Sidebar';
 
 const Submit = styled(Button)`
   width: 200px;
@@ -39,6 +40,11 @@ function LogIn() {
     const [err, setErr] = React.useState(null);
 
     const history = useHistory();
+    const [isOpen, setIsOpen] = React.useState(false);
+    const toggle = () => {
+      setIsOpen(!isOpen);
+    };
+
 
     const handleSubmit = async (event, password, email) => {
         event.preventDefault();
@@ -55,19 +61,15 @@ function LogIn() {
         let response;
 
         try {
-            response = await fetch (`${APIlink}/users`, requestOptions)
+            response = await fetch (process.env.REACT_APP_API_ENDPOINT +"/users", requestOptions)
         } catch (err) {
             setErr("Incorrect Password. Please Retry.");
             return;
         }
 
         const result = await response.text();
-        //console.log(result);
         const json = JSON.parse(result);
-        //console.log(json);
-        //console.log(response);
-        //console.log(JSON.stringify(myHeaders));
-        
+       
 
         if (response.status===200) {
             setErr(null);
@@ -83,7 +85,8 @@ function LogIn() {
 
         return (
             <div>
-                <Navbar />
+                <Sidebar isOpen={isOpen} toggle={toggle} />
+                <Navbar toggle={toggle} />
             <div className="register row justify-content-center align-items-center">
 
              <div className = "w-50 p-3">

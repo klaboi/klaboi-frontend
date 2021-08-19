@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import Navbar from '../Navbar';
-import Footer from '../Footer/Footer';
+import Footer from '../Footer';
 import Carousel from '../Project/carouselComponent'
 import 'bootstrap/dist/css/bootstrap.min.css';
 

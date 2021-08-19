@@ -5,7 +5,6 @@ import styled from "styled-components";
 import './Register.scss';
 import {Button} from 'react-bootstrap';
 import { encode } from "base-64";
-import { APIlink } from "../../Helper";
 import Navbar from '../../components/Navbar';
 import { Label } from 'reactstrap';
 
@@ -62,7 +61,7 @@ const Profile = () => {
       let response;
 
       try {
-          response = await fetch (`${APIlink}/users`, requestOptions)
+          response = await fetch (process.env.REACT_APP_API_ENDPOINT +"/users", requestOptions)
       } catch (err) {
           console.log("Incorrect Password. Please Retry.");
           return;
@@ -88,7 +87,7 @@ const Profile = () => {
       let response;
 
       try {
-          response = await fetch (`${APIlink}/uploads/resume/${user_uid}`, requestOptions)
+          response = await fetch (process.env.REACT_APP_API_ENDPOINT +"/uploads/resume/${user_uid}", requestOptions)
       } catch (err) {
           console.log("Failed");
           return;
@@ -133,7 +132,7 @@ const Profile = () => {
     let response;
 
     try {
-        response = await fetch (`${APIlink}/users`, requestOptions)
+        response = await fetch (process.env.REACT_APP_API_ENDPOINT +"/users", requestOptions)
     } catch (err) {
         console.log("Incorrect Password. Please Retry.");
         return;

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Footer from '../Footer/Footer'
+import Footer from '../Footer'
 import CardComponent from './cardComponent';
 
 function example() {

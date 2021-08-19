@@ -4,7 +4,6 @@ import { Link, useHistory, useState } from "react-router-dom";
 import styled from "styled-components";
 // import './Project.scss';
 import {Button} from 'react-bootstrap';
-import { APIlink } from "../../Helper";
 import Navbar from '../Navbar';
 
 
@@ -83,7 +82,7 @@ function AddProject() {
         let response;
 
         try {
-            response = await fetch (`${APIlink}/projects`, requestOptions)
+            response = await fetch (process.env.REACT_APP_API_ENDPOINT +"/projects", requestOptions)
         } catch (err) {
             setErr("Incorrect Password. Please Retry.");
             return;
