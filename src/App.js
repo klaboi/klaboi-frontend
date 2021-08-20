@@ -9,7 +9,7 @@ import Detail from './components/Project/projectdetailComponent';
 import Project2Component from './components/Project/project2Component';
 import Project3Component from './components/Project/demo1Component';
 import Project4Component from './components/Project/demo2Component';
-import { HashRouter, Route, Link, Switch } from "react-router-dom";
+import { HashRouter, Route, Link, Switch, BrowserRouter } from "react-router-dom";
 import AuthRequired from './pages/Auth/AuthRequired';
 import Profile from './pages/Auth/Profile';
 import VerifyMail from './pages/Auth/VerifyMail';
@@ -17,6 +17,8 @@ import AddProject from './components/Project/addProject';
 import ProjectDetail from './components/Project/ProjectDetail';
 import Application from './components/Project/Application';
 import ProfProjects from './components/Project/ProfProjects';
+import Applicants from './components/Project/Applicants';
+import StudentApplications from './components/Project/studentApplications';
 
 const publicRoutes = [
   {
@@ -56,6 +58,16 @@ const authRequiredRoutes = [
     path: "/Application",
     exact: true,
     component: <Project2Component/>
+  },
+  {
+    path: "/Applicants/:project_uid",
+    exact: true,
+    component: <Applicants/>
+  },
+  {
+    path: "/MyApplications",
+    exact: true,
+    component: <StudentApplications/>
   },
   {
     path: "/Demo1",
@@ -101,7 +113,7 @@ function App(props) {
     return (
       <div >
         
-            <HashRouter basename ='/'>
+            <BrowserRouter basename ='/'>
                 <Switch>
                     <Route exact path={pathsForLayout(publicRoutes)}>
                         <Switch>
@@ -138,7 +150,7 @@ function App(props) {
                     </Route>
                     {/* <Route component={NotFound} /> Your custom 404 page */}
                </Switch>
-           </HashRouter>
+           </BrowserRouter>
         </div>
     )
   }

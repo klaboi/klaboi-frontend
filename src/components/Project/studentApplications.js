@@ -1,13 +1,11 @@
 import React, { useEffect, useHistory } from 'react';
-import {Link, withRouter} from "react-router-dom";
 import Navbar from '../Navbar';
 import Datatable from "./datatable";
 
-const Applicants = (props) => {
+const StudentApplications = () => {
     const credentials = localStorage.getItem('currentUser');
     const [data, setData] = React.useState([]);
     const [query, setQuery] = React.useState("");
-    console.log("props", props);
 
     const getApplicants = async() => {
         var myHeaders = new Headers();
@@ -21,7 +19,7 @@ const Applicants = (props) => {
           let response;
     
           try {
-              response = await fetch (process.env.REACT_APP_API_ENDPOINT + "/applications/project/"+ props.match.params.project_uid, requestOptions)
+              response = await fetch (process.env.REACT_APP_API_ENDPOINT +"/applications/owner", requestOptions)
           } catch (err) {
               console.log("Incorrect Password. Please Retry.");
               return;
@@ -35,7 +33,8 @@ const Applicants = (props) => {
       console.log(user_uid);
 
       useEffect(() => {
-        getApplicants();   
+        getApplicants();
+        
       }, []);
 
       return(
@@ -51,4 +50,4 @@ const Applicants = (props) => {
       )
 }
 
-export default withRouter(Applicants);
+export default StudentApplications;

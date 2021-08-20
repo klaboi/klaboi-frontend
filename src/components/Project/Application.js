@@ -34,7 +34,7 @@ const ProjectDetail = (props) => {
   let response;
 
     try {
-        response = await fetch (`${APIlink}/projects/`+ props.match.params.project_uid, requestOptions)
+        response = await fetch (process.env.REACT_APP_API_ENDPOINT + "/projects/"+ props.match.params.project_uid, requestOptions)
     } catch (err) {
         return;
     }finally{

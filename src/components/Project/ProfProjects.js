@@ -53,7 +53,7 @@ export function CardComponent ({props}) {
       padding: "0% 3% 3% 3%"
     }}>
     {
-      data && data.Items.map((data, index) => {
+      data && data.map((data, index) => {
         return (<Card style={{
             textAlign: "left",
             margin:"3%",
@@ -81,7 +81,7 @@ export function CardComponent ({props}) {
                   <Col sm="3" style={{alignItems:"center"}}><img src="a2.png" alt="" style={{width:"20%"}}/>INR {data.stipend}</Col>
                   <Col sm="3" style={{background:"#E67B5D", padding:"0", margin:"0"}}>
                     <center>
-                    <Link to ={"/Projects/Details/" + data["project-uid"]}><Button style={{
+                    <Link to ={"/Applicants/" + data["project-uid"]}><Button style={{
                         backgroundColor: "#E67B5D",
                         border:"#E67B5D",
                         color: "white"

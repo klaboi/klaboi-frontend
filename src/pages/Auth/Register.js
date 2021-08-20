@@ -11,22 +11,22 @@ import AuthRequired from './AuthRequired';
 const Submit = styled(Button)`
   width: 200px;
   cursor: ${(props) =>
-    props.loginstate == "empty"
+    props.loginstate === "empty"
       ? "default"
-      : props.loginstate == "filled"
+      : props.loginstate === "filled"
       ? "pointer"
       : ""};
   background-color: ${(props) =>
-    props.loginstate == "empty"
+    props.loginstate === "empty"
       ? "#cacaca"
-      : props.loginstate == "filled"
+      : props.loginstate === "filled"
       ? "#0F8797"
       : ""};
   &:hover {
     background-color: ${(props) =>
-      props.loginstate == "empty"
+      props.loginstate === "empty"
         ? "#cacaca"
-        : props.loginstate == "filled"
+        : props.loginstate === "filled"
         ? "#0F8797"
         : ""};
   }
@@ -106,7 +106,7 @@ function Register() {
       let isValid = true;
       var regex = /\S+@iitkgp\.ac\.in$/;
       var result = regex.test(email);
-      if(result == true){
+      if(result === true){
           isValid = true;
       }
       else{

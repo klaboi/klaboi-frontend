@@ -1,14 +1,5 @@
-import logo from '../../components/Assets/logo.svg';
-import React, { Component } from "react";
-import './Project.css';
-import HeaderComponent from '../../components/Project/headerComponent';
-import CardComponent from '../../components/Project/cardComponent';
-import CarouselComponent from '../../components/Project/carouselComponent';
-import FooterComponent from '../../components/Project/footerComponent';
-import ProjectComponent from '../../components/Project/projectComponent';
-import Project2Component from '../../components/Project/project2Component';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Card from "./Card";
+
+
 
 /*class Products extends Component {
     constructor(props){

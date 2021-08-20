@@ -50,7 +50,7 @@ const CardComponent = (props) => {
       padding: "0% 3% 3% 3%"
     }}>
     {
-      data && data.Items.map((data, index) => {
+      data && data.map((data, index) => {
         return (<Card style={{
             textAlign: "left",
             margin:"3%",

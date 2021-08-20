@@ -1,20 +1,11 @@
 import React from 'react';
 import {
-  Card,
-  CardImg,
-  CardText,
-  CardBody,
-  CardTitle,
-  CardSubtitle,
   Button
 } from 'reactstrap';
-import logo from '../Assets/kgp.svg';
-import {Container, Row, Col} from 'reactstrap';
-import axios from 'axios';
+import { Row, Col} from 'reactstrap';
 import {useState, useEffect} from "react";
 import {Link, withRouter} from "react-router-dom";
 import Navbar from '../Navbar';
-import { Translate } from 'aws-sdk';
 import Footer from './footerComponent';
 import Carousel from '../Project/carouselComponent'
 
@@ -69,36 +60,36 @@ const ProjectDetail = (props) => {
         <div className="container" style={{padding: "1rem"}}>
         <div>
             <h2>Project Title</h2>
-            <Row style = {{display: "flex"}}><Col sm="3">{project?.Item?.profName || ''}</Col>
-                 <Col sm="3">{project?.Item?.dept || ''}</Col>
+            <Row style = {{display: "flex"}}><Col sm="3">{project?.profName || ''}</Col>
+                 <Col sm="3">{project?.dept || ''}</Col>
             </Row>             
         </div>
         <br/>
         <div style={{fontWeight:"bold"}}>
-          <Row style = {{display: "flex", alignContent:"center"}}><Col sm="3" style={{alignItems:"center"}}><img src="a1.png" alt="" style={{width:"20%"}}/>{project?.Item?.duration || ''} Months</Col>
-                 <Col sm="3" style={{alignItems:"center"}}><img src="a2.png" alt="" style={{width:"20%"}}/>{project?.Item?.stipend || ''}</Col>
+          <Row style = {{display: "flex", alignContent:"center"}}><Col sm="3" style={{alignItems:"center"}}><img src="a1.png" alt="" style={{width:"20%"}}/>{project?.duration || ''} Months</Col>
+                 <Col sm="3" style={{alignItems:"center"}}><img src="a2.png" alt="" style={{width:"20%"}}/>{project?.stipend || ''}</Col>
           </Row>
-          <Row style = {{displey: "flex", alignContent:"center"}}><Col sm="3" style={{alignItems:"center"}}><img src="a3.png" alt="" style={{width:"20%"}}/>{project?.Item?.totalSlots || ''}</Col>
+          <Row style = {{displey: "flex", alignContent:"center"}}><Col sm="3" style={{alignItems:"center"}}><img src="a3.png" alt="" style={{width:"20%"}}/>{project?.totalSlots || ''}</Col>
                  <Col sm="3" style={{alignItems:"center"}}><img src="a4.png" alt="" style={{width:"20%"}}/>31st January</Col>
           </Row>
         </div>
         <br/><br/>
-        <div>  {project?.Item?.description || ''}</div>
+        <div>  {project?.description || ''}</div>
 
         <br/>
         <div>
             <h4>Responsibilities</h4>
-            {project?.Item?.responsibilities || ''}</div>
+            {project?.responsibilities || ''}</div>
 
         <br/>
         <div>
             <h4>Prerequisites</h4>
-            {project?.Item?.preReq || ''}</div>
+            {project?.preReq || ''}</div>
 
         <br/>
         <div>
             <h4>Additional Details</h4>
-            {project?.Item?.addDetails || ''}</div>
+            {project?.addDetails || ''}</div>
 
         <br/>
         <div>
@@ -138,7 +129,7 @@ const ProjectDetail = (props) => {
       </div>
       <br></br>
       <center>
-      <Link to ={"/Projects/Application/"+ project?.Item?.["project-uid"] || ''}>
+      <Link to ={"/Projects/Application/"+ project?.["project-uid"] || ''}>
        <Button style={{
                         backgroundColor: "#E67B5D",
                         color: "white",
