@@ -83,6 +83,26 @@ export const NavLinks = styled(LinkS)`
   align-items: center;
   text-decoration: none;
   padding: 0 1rem;
+  margin-top: 0.5rem;
+  height: 100%;
+  cursor: pointer;
+
+  &:active {
+    border-bottom: 2px solid #01bf71;
+  }
+  &:hover {
+    color: #000;
+    text-decoration: none;
+  }
+`;
+export const NavLinksLogged = styled(LinkR)`
+  color: #343a40;
+  display: flex;
+  align-items: center;
+  float: right;
+  text-decoration: none;
+  padding: 1rem 1rem;
+  margin-top: 0.5rem;
   height: 100%;
   cursor: pointer;
 
